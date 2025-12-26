@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mariam Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .brand-color { background: #e97618; }
+    .brand-text { color: #e97618; }
+    .btn-brand { background:#e97618; border-color:#e97618; box-shadow:0 0 10px #e97618; }
+    .btn-brand:hover { background:white; color:#e97618; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-6 py-4 brand-color text-white fixed w-full top-0 z-50 shadow">
+    <a class="text-2xl font-bold flex items-center gap-2" href="#">
+      <i class='bx bx-user-circle text-3xl'></i> Mariam
+    </a>
+
+    <ul class="hidden md:flex gap-8 text-lg">
+      <li><a href="#home" class="flex items-center gap-1"><i class='bx bx-home'></i> Home</a></li>
+      <li><a href="#about" class="flex items-center gap-1"><i class='bx bx-user'></i> About</a></li>
+      <li><a href="#portfolio" class="flex items-center gap-1"><i class='bx bx-folder'></i> Projects</a></li>
+      <li><a href="#services" class="flex items-center gap-1"><i class='bx bx-briefcase'></i> Services</a></li>
+      <li><a href="#contact" class="flex items-center gap-1"><i class='bx bx-phone'></i> Contact</a></li>
+    </ul>
+
+    <i class='bx bx-menu text-3xl md:hidden cursor-pointer' id="menu-btn"></i>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="hidden flex-col bg-white w-full shadow-md p-6 gap-4 text-lg fixed top-16 left-0 z-40">
+    <a href="#home" class="flex items-center gap-2 mobile-link"><i class='bx bx-home'></i> Home</a>
+    <a href="#about" class="flex items-center gap-2 mobile-link"><i class='bx bx-user'></i> About</a>
+    <a href="#portfolio" class="flex items-center gap-2 mobile-link"><i class='bx bx-folder'></i> Projects</a>
+    <a href="#services" class="flex items-center gap-2 mobile-link"><i class='bx bx-briefcase'></i> Services</a>
+    <a href="#contact" class="flex items-center gap-2 mobile-link"><i class='bx bx-phone'></i> Contact</a>
+  </div>
+
+  <!-- HOME -->
+  <section id="home" class="pt-40 pb-20 px-6 flex flex-col md:flex-row text-white items-center gap-12" style="background-color: black;">
+    <div class="md:w-1/2 ">
+      <h1 class="text-4xl md:text-5xl font-extrabold brand-text">UMUTESI Mariam</h1>
+      <h2 class="text-2xl mt-4 font-semibold text-gray-300">UI/UX Designer, Front-End Developer, and Graphic Designer</h2>
+      <p class="mt-6 text-gray-300 leading-relaxed">
+        I am a professional UI/UX Designer, Front-End Developer, and Graphic Designer dedicated to creating visually compelling, 
+        user-centered, and high-performing digital experiences. I combine strong design principles with technical expertise to build solutions 
+        that are both aesthetically refined and functionally effective.
+      </p>
+      <div class="flex items-center gap-6 mt-8">
+        <a href="#" class="px-6 py-3 text-white rounded-xl border btn-brand transition">Download CV</a>
+        <div class="flex gap-4 text-2xl">
+          <a href="https://github.com/Mariam0401" target="_blank" class="hover:brand-text"><i class='bx bxl-github'></i></a>
+          <a href="https://www.linkedin.com/in/umutesi-mariam-4a66681b9/" target="_blank" class="hover:brand-text"><i class='bx bxl-linkedin'></i></a>
+          <a href="#" target="_blank" class="hover:brand-text"><i class='bx bxl-instagram'></i></a>
+          <a href="#" target="_blank" class="hover:brand-text"><i class='bx bxl-facebook'></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:w-1/2 flex justify-center">
+      <img src="Mariam.jpeg" alt="Mariam" class="w-72 h-72 object-cover rounded-full shadow-xl border-4" style="border-color:#e97618;">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="px-6 py-20 bg-white">
+    <h2 class="text-3xl font-bold text-center brand-text mb-10">About Me</h2>
+    <p class="max-w-4xl mx-auto text-gray-700 text-lg leading-relaxed text-center">
+      I specialize in UI/UX design, wireframing, prototyping, user research, 
+      as well as front-end development using HTML, CSS, JavaScript, and React. 
+      Alongside my digital design skills, I also create impactful graphic design assets including branding materials,
+       social media graphics, and marketing visuals that strengthen brand identity and communication.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="px-6 py-20 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center brand-text mb-12">My Services</h2>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+      <div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition border-t-4" style="border-color:#e97618;">
+        <i class='bx bxs-color-fill text-4xl brand-text'></i>
+        <h3 class="mt-4 text-xl font-semibold">Graphic Design</h3>
+        <p class="mt-2 text-gray-600">Logos, posters, banners, flyers, social media graphics, ads, and more.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition border-t-4" style="border-color:#e97618;">
+        <i class='bx bx-devices text-4xl brand-text'></i>
+        <h3 class="mt-4 text-xl font-semibold">UI/UX Design</h3>
+        <p class="mt-2 text-gray-600">Wireframes, prototypes, and user-centered interfaces for web & mobile apps.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition border-t-4" style="border-color:#e97618;">
+        <i class='bx bx-code-alt text-4xl brand-text'></i>
+        <h3 class="mt-4 text-xl font-semibold">Front-End Development</h3>
+        <p class="mt-2 text-gray-600">Responsive websites with HTML, CSS, JavaScript, and React.</p>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <!-- PROJECTS -->
+  <section id="portfolio" class="px-6 py-20 bg-white">
+    <h2 class="text-3xl font-bold text-center brand-text mb-12">My Projects</h2>
+
+    <!-- FILTER BUTTONS -->
+    <div class="flex justify-center gap-6 mb-10 text-lg font-semibold">
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="all">All</button>
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="uiux">UI/UX</button>
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="web">Websites</button>
+    </div>
+
+    <!-- PROJECT GRID -->
+    <div id="project-grid" class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+      <a href="#" class="project-card group" data-category="uiux">
+        <img src="./images/PricingPage.png" class="w-full h-64 object-cover" />
+        <div class="project-overlay">Mobile App UI/UX</div>
+      </a>
+
+      <a href="#" class="project-card group" data-category="web">
+        <img src="portfolio.png" class="w-full h-64 object-cover" />
+        <div class="project-overlay">Business Website</div>
+      </a>
+
+      <a href="#" class="project-card group" data-category="uiux">
+        <img src="portfolio.png" class="w-full h-64 object-cover" />
+        <div class="project-overlay">Banking Dashboard UI</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-6 py-20 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center brand-text mb-10">Contact Me</h2>
+
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+      <!-- CONTACT DETAILS -->
+      <div class="bg-white p-8 rounded-2xl shadow flex flex-col gap-6">
+        <a href="mailto:umutesimariam04@gmail.com" class="flex items-center gap-3 text-lg hover:brand-text">
+          <i class='bx bx-envelope text-3xl brand-text'></i>
+          <span>Email: umutesimariam04@gmail.com</span>
+        </a>
+
+        <a href="https://wa.me/+250788929705" target="_blank" class="flex items-center gap-3 text-lg hover:brand-text">
+          <i class='bx bxl-whatsapp text-3xl brand-text'></i>
+          <span>WhatsApp: +250788929705</span>
+        </a>
+
+        <a href="tel:+250788929705" class="flex items-center gap-3 text-lg hover:brand-text">
+          <i class='bx bx-phone-call text-3xl brand-text'></i>
+          <span>Phone: +250788929705</span>
+        </a>
+      </div>
+
+      <!-- GOOGLE MAP -->
+      <div class="rounded-2xl overflow-hidden shadow">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25797.65840634168!2d30.061!3d-1.944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6d8c0ef93b1%3A0x123456789abcd!2sKigali!5e0!3m2!1sen!2srw!4v1700000000000" 
+          width="100%" 
+          height="100%" 
+          style="border:0; min-height: 300px;" 
+          allowfullscreen="" 
+          loading="lazy"></iframe>
+      </div>
+    </div>
+</section>
+
+  <footer class="py-6 text-center bg-white border-t">
+    <p class="text-gray-600">© 2024 Umutesi Mariam. All rights reserved.</p>
+  </footer>
+
+  <script>
+  // MOBILE MENU TOGGLE
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.onclick = () => menu.classList.toggle('hidden');
+
+  // CLOSE MENU WHEN CLICKING A LINK
+  const links = document.querySelectorAll('.mobile-link');
+  links.forEach(link => {
+    link.onclick = () => menu.classList.add('hidden');
+  });
+
+  // PROJECT FILTERING
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // highlight active button
+      filterBtns.forEach(b => b.classList.remove("bg-orange-500", "text-white"));
+      btn.classList.add("bg-orange-500", "text-white");
+    });
+  });
+</script>
+
+</body>
+</html>
