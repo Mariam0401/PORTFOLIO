@@ -3,36 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mariam Umutesi Portfolio</title>
-
+  <meta http-equiv="refresh" content="5" />
+  <title>Mariam umutesi Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
-    .brand-color { background:#e97618; }
-    .brand-text { color:#e97618; }
+    .brand-color { background: #e97618; }
+    .brand-text { color: #e97618; }
     .btn-brand { background:#e97618; border-color:#e97618; box-shadow:0 0 10px #e97618; }
     .btn-brand:hover { background:white; color:#e97618; }
-
-    .project-card { position:relative; overflow:hidden; border-radius:1rem; }
-    .project-overlay {
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.7);
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      opacity:0;
-      transition:.3s;
-      font-size:1.1rem;
-      text-align:center;
-      padding:1rem;
-    }
-    .project-card:hover .project-overlay { opacity:1; }
   </style>
 </head>
-
 <body class="bg-gray-50 text-gray-800 font-sans">
   
   <!-- NAVBAR -->
@@ -78,6 +59,7 @@
           Download CV
         </a>
 
+        <a href="#" class="px-6 py-3 text-white rounded-xl border btn-brand transition" download="./images/CV/Resume-Mariam.pdf">Download CV</a>
         <div class="flex gap-4 text-2xl">
           <a href="https://github.com/Mariam0401" target="_blank" class="hover:brand-text"><i class='bx bxl-github'></i></a>
           <a href="https://www.linkedin.com/in/umutesi-mariam-4a66681b9/" target="_blank" class="hover:brand-text"><i class='bx bxl-linkedin'></i></a>
@@ -137,44 +119,30 @@
     <!-- FILTER BUTTONS -->
     <div class="flex justify-center gap-6 mb-10 text-lg font-semibold">
       <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="all">All</button>
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="uiux">UI/UX</button>
       <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="web">Websites</button>
-      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="uiux">Mobile app</button>
     </div>
 
+    <!-- PROJECT GRID -->
+    <div id="project-grid" class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-<!-- PROJECTS -->
-<section id="portfolio" class="px-6 py-20 bg-white">
-  <div id="project-grid" class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <a href="#" class="project-card group" data-category="web">
+        <img src="./images/web/careerticket.png" class="w-full h-64 object-cover" />
+        <div class="project-overlay">CareerTicket Website Design challenge</div>
+      </a>
 
-    <a href="#" class="project-card" data-category="web"
-       data-images='["./images/web/careerticket.png","./images/web/careerticket2.png","./images/web/careerticket3.png"]'>
-      <img src="./images/web/careerticket.png" class="w-full h-64 object-cover">
-      <div class="project-overlay">CareerTicket Website</div>
-    </a>
+      <a href="#" class="project-card group" data-category="web">
+        <img src="./images/web/Interiod-Design.png" class="w-full h-64 object-cover" />
+        <div class="project-overlay">Web design for Interior designer</div>
+      </a>
 
-    <a href="#" class="project-card" data-category="web"
-       data-images='["./images/web/interior1.png","./images/web/interior2.png"]'>
-      <img src="./images/web/Interiod-Design.png" class="w-full h-64 object-cover">
-      <div class="project-overlay">Interior Design Website</div>
-    </a>
+      <a href="#" class="project-card group" data-category="uiux">
+        <img src="portfolio.png" class="w-full h-64 object-cover" />
+        <div class="project-overlay">Banking Dashboard UI</div>
+      </a>
 
-    <a href="#" class="project-card" data-category="uiux"
-       data-images='["./images/uiux/bank1.png","./images/uiux/bank2.png","./images/uiux/bank3.png"]'>
-      <img src="portfolio.png" class="w-full h-64 object-cover">
-      <div class="project-overlay">Banking Dashboard UI</div>
-    </a>
-
-  </div>
-</section>
-
-<!-- LIGHTBOX / ALBUM -->
-<div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50">
-  <button id="prev" class="absolute left-6 text-white text-4xl">‹</button>
-  <img id="lightbox-img"
-       class="max-w-[90vw] max-h-[90vh] cursor-zoom-in transition-transform duration-300">
-  <button id="next" class="absolute right-6 text-white text-4xl">›</button>
-  <button id="close" class="absolute top-6 right-6 text-white text-3xl">✕</button>
-</div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact" class="px-6 py-20 bg-gray-100">
@@ -212,50 +180,13 @@
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="py-6 text-center bg-white border-t">
-  © 2024 Umutesi Mariam
-</footer>
+  <footer class="py-6 text-center bg-white border-t">
+    <p class="text-gray-600">© 2024 Umutesi Mariam. All rights reserved.</p>
+  </footer>
 
-<script>
-/* LIGHTBOX ALBUM */
-const lightbox = document.getElementById("lightbox");
-const img = document.getElementById("lightbox-img");
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
-const close = document.getElementById("close");
-
-let images = [];
-let index = 0;
-let zoom = false;
-
-document.querySelectorAll(".project-card").forEach(card => {
-  card.onclick = e => {
-    e.preventDefault();
-    images = JSON.parse(card.dataset.images);
-    index = 0;
-    show();
-    lightbox.classList.remove("hidden");
-    lightbox.classList.add("flex");
-  };
-});
-
-function show() {
-  img.src = images[index];
-  zoom = false;
-  img.style.transform = "scale(1)";
-}
-
-next.onclick = () => { index = (index + 1) % images.length; show(); }
-prev.onclick = () => { index = (index - 1 + images.length) % images.length; show(); }
-close.onclick = () => lightbox.classList.add("hidden");
-
-img.onclick = () => {
-  zoom = !zoom;
-  img.style.transform = zoom ? "scale(1.8)" : "scale(1)";
-};
-
-const btn = document.getElementById('menu-btn');
+  <script>
+  // MOBILE MENU TOGGLE
+  const btn = document.getElementById('menu-btn');
   const menu = document.getElementById('mobile-menu');
   btn.onclick = () => menu.classList.toggle('hidden');
 
