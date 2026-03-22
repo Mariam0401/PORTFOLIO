@@ -133,18 +133,33 @@
 
     </div>
   </section>
-
   
   <!-- PROJECTS -->
   <section id="portfolio" class="px-6 py-20 bg-white">
     <h2 class="text-3xl font-bold text-center brand-text mb-12">My Projects</h2>
 
-    <!-- FILTER BUTTONS -->
-    <div class="flex justify-center gap-6 mb-10 text-lg font-semibold">
-      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="all">All</button>
-      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="web">Web design</button>
-      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="uiux">Mobile app design</button>
-      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400" data-filter="graphic-design">Graphic design</button>
+    <div class="flex justify-center gap-6 mb-10 text-lg font-semibold flex-wrap">
+
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400 flex items-center gap-2" data-filter="all">
+        All 
+        <span class="count bg-orange-500 text-white text-sm px-2 py-1 rounded-full" data-count="all">0</span>
+      </button>
+
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400 flex items-center gap-2" data-filter="web">
+        Web design 
+        <span class="count bg-orange-500 text-white text-sm px-2 py-1 rounded-full" data-count="web">0</span>
+      </button>
+
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400 flex items-center gap-2" data-filter="uiux">
+        Mobile app design 
+        <span class="count bg-orange-500 text-white text-sm px-2 py-1 rounded-full" data-count="uiux">0</span>
+      </button>
+
+      <button class="filter-btn px-4 py-2 rounded-lg brand-text border border-orange-400 flex items-center gap-2" data-filter="graphic-design">
+        Graphic design 
+        <span class="count bg-orange-500 text-white text-sm px-2 py-1 rounded-full" data-count="graphic-design">0</span>
+      </button>
+
     </div>
 
 
@@ -158,6 +173,14 @@
                     "./images/web-app/umurava/Home-Mobile.png",
                     "./images/web-app/umurava/Home-Tablet.png"]'>
       <img src="./images/web-app/umurava/careerticket.png" class="w-full h-64 object-cover">
+      <!-- <div class="project-overlay">CareerTicket Website</div> -->
+       <div class="absolute bottom-4 left-4 right-4">
+        <div class="bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 shadow">
+          <p class="text-xs text-orange-500 font-semibold uppercase">Web Design</p>
+          <h4 class="text-sm font-bold text-gray-800">CareerTicket Website</h4>
+        </div>
+      </div>
+
       <div class="project-overlay">CareerTicket Website</div>
     </a>
     
@@ -482,6 +505,37 @@ filterBtns.forEach(btn => {
 
 // INITIAL LOAD
 displayProjects();
+
+/* =========================
+   COUNT PROJECTS PER CATEGORY
+========================= */
+
+function updateCounts() {
+  const allCards = document.querySelectorAll(".project-card");
+
+  const counts = {
+    all: allCards.length,
+    web: 0,
+    uiux: 0,
+    "graphic-design": 0
+  };
+
+  allCards.forEach(card => {
+    const category = card.dataset.category;
+    if (counts[category] !== undefined) {
+      counts[category]++;
+    }
+  });
+
+  document.querySelectorAll(".count").forEach(span => {
+    const type = span.dataset.count;
+    span.textContent = counts[type];
+  });
+}
+
+// CALL IT ON LOAD
+updateCounts();
+
 
 </script>
 
