@@ -30,6 +30,11 @@
       padding:1rem;
     }
     .project-card:hover .project-overlay { opacity:1; }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 
@@ -222,7 +227,63 @@
       <img src="./images/Graphic/Instagram post - 1.jpg" class="w-full h-82 object-cover">
       <div class="project-overlay">VUBA VUBA Flyer</div>
     </a>
-  </div>
+    <a href="#" class="project-card" data-category="graphic-design"
+       data-images='[
+       "./images/Graphic/ADDY WADROBE.jpg"]'>
+      <img src="./images/Graphic/ADDY WADROBE.jpg" class="w-full h-82 object-cover">
+      <div class="project-overlay">ADDY WADROBE Flyer</div>
+    </a>
+
+    <a href="#" class="project-card" data-category="graphic-design"
+       data-images='[
+       "./images/Graphic/imani/Imani4.jpeg",
+       "./images/Graphic/imani/Imani1.jpeg",
+       "./images/Graphic/imani/Imani2.jpeg",
+       "./images/Graphic/imani/Imani3.jpeg",
+       "./images/Graphic/imani/Imani5.jpeg",
+       "./images/Graphic/imani/Imani6.jpeg",
+       "./images/Graphic/imani/Imani7.jpeg",
+       "./images/Graphic/imani/Imani8.jpeg",
+       "./images/Graphic/imani/Imani9.jpeg"
+       ]'>
+      <img src="./images/Graphic/imani/Imani4.jpeg" class="w-full h-82 object-cover">
+      <div class="project-overlay">Imani catering</div>
+    </a>
+
+    <a href="#" class="project-card" data-category="graphic-design"
+       data-images='[
+       "./images/Graphic/ImaniLogo/ImaniLogo1.jpeg",
+       "./images/Graphic/ImaniLogo/ImaniLogo2.jpeg",
+       "./images/Graphic/ImaniLogo/ImaniLogo3.jpeg"
+       ]'>
+      <img src="./images/Graphic/ImaniLogo/ImaniLogo1.jpeg" class="w-full h-82 object-cover">
+      <div class="project-overlay">Imani logo</div>
+    </a>
+
+    <a href="#" class="project-card" data-category="graphic-design"
+       data-images='[
+       "./images/Graphic/SawaPay/sawaPay2.jpeg",
+       "./images/Graphic/SawaPay/sawaPay1.jpeg",
+       "./images/Graphic/SawaPay/sawaPay3.jpeg"
+       ]'>
+      <img src="./images/Graphic/SawaPay/sawaPay2.jpeg" class="w-full h-82 object-cover">
+      <div class="project-overlay">Sawa pay</div>
+    </a>
+
+    </div>
+
+    <div id="pagination" class="flex justify-center items-center gap-4 mt-10">
+      <button id="prev-page" class="px-4 py-2 border rounded-lg hover:bg-orange-500 hover:text-white transition">
+        Prev
+      </button>
+
+      <span id="page-info" class="font-semibold"></span>
+
+      <button id="next-page" class="px-4 py-2 border rounded-lg hover:bg-orange-500 hover:text-white transition">
+        Next
+      </button>
+    </div>
+
 </section>
 
 <!-- LIGHTBOX / ALBUM -->
@@ -344,6 +405,84 @@ const btn = document.getElementById('menu-btn');
       btn.classList.add("bg-orange-500", "text-white");
     });
   });
+
+// LIGHTBOX (keep your existing one unchanged)
+
+/* =========================
+   PAGINATION + FILTER
+========================= */
+
+const allCards = Array.from(document.querySelectorAll(".project-card"));
+
+const itemsPerPage = 6;
+let currentPage = 1;
+let filteredCards = [...allCards];
+
+const pageInfo = document.getElementById("page-info");
+const prevPageBtn = document.getElementById("prev-page");
+const nextPageBtn = document.getElementById("next-page");
+
+// SHOW PROJECTS
+function displayProjects() {
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+
+  allCards.forEach(card => card.classList.add("hidden"));
+
+  filteredCards.slice(start, end).forEach(card => {
+    card.classList.remove("hidden");
+  });
+
+  const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+
+  pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+  prevPageBtn.disabled = currentPage === 1;
+  nextPageBtn.disabled = currentPage === totalPages;
+
+  // Optional: auto scroll to top of portfolio
+  document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
+}
+
+// NEXT PAGE
+nextPageBtn.onclick = () => {
+  if (currentPage < Math.ceil(filteredCards.length / itemsPerPage)) {
+    currentPage++;
+    displayProjects();
+  }
+};
+
+// PREVIOUS PAGE
+prevPageBtn.onclick = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    displayProjects();
+  }
+};
+
+// FILTERING (UPDATED)
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const category = btn.dataset.filter;
+
+    if (category === "all") {
+      filteredCards = [...allCards];
+    } else {
+      filteredCards = allCards.filter(card => card.dataset.category === category);
+    }
+
+    currentPage = 1;
+    displayProjects();
+
+    // ACTIVE BUTTON STYLE
+    filterBtns.forEach(b => b.classList.remove("bg-orange-500", "text-white"));
+    btn.classList.add("bg-orange-500", "text-white");
+  });
+});
+
+// INITIAL LOAD
+displayProjects();
+
 </script>
 
 </body>
